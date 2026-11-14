@@ -13,6 +13,9 @@ logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("clinic-bot")
 
 app = FastAPI(title="Surgical Clinic WhatsApp Assistant")
+@app.get("/")
+async def home():
+    return {"status": "Webhook server is running"}
 DB_PATH = os.getenv("DB_PATH", "clinic_bot.db")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-6-luna")
